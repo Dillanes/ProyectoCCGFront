@@ -1,0 +1,213 @@
+.containerLogin{
+    position: relative;
+    width: 30%;
+    height: 500px;
+    background: rgb(98,98,98);
+    background: linear-gradient(90deg, rgba(98,98,98,1) 0%, rgba(191,191,191,1) 34%, rgba(193,193,193,1) 100%);
+    margin: auto;
+    margin-top: 120px;
+    border-radius: 15px;
+    padding: 20px;
+
+}
+
+.loginFormHeader{
+    background-color: #000;
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 0;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.loginFormBody{
+    
+    width: 100%;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.loginFormFooter{
+    background-color: rgb(179, 179, 179);
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-radius: 0px 0px 15px 15px;
+
+}
+
+
+
+.main-head{
+    height: 150px;
+    background: #FFF;
+   
+}
+
+.sidenav {
+    height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+
+.main {
+    padding: 50px 100px;
+}
+
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+}
+
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+
+    .register-form{
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 40%; 
+    }
+
+    .sidenav{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .login-form{
+        margin-top: 80%;
+    }
+
+    .register-form{
+        margin-top: 20%;
+    }
+}
+
+
+.login-main-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
+}
+
+.login-main-text h2{
+    font-weight: 300;
+}
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
+
+.login-block{
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+    border-radius: 30px;
+    margin-top: 100px;
+    background-color: #85929E 
+
+}
+
+.ContainerImgLogin{
+    width: 100%;
+    position: relative;
+}
+.textLoginDesc{
+    color: #fff;
+    animation-name: showText;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+
+}
+
+@keyframes showText {
+    0%{
+        color: #000;
+    }
+}
+
+.LogoCCGLogin{   
+    width: 80%;
+    margin:auto;
+    filter: invert(90%);
+    animation-name: visible;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    
+}
+
+@keyframes visible {
+    0%{
+        filter: invert(0%);
+    }
+    
+}
+
+.containerLoginInicio{
+    height: 100%;
+}
+.botonInicioLogin{
+    background-color: #000;
+    box-shadow: none;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.botonInicioLogin:hover{
+        background-color: #444;
+}
+
+.brilloLogo{
+    width: 0px;
+    height: 80%;
+    right: 15%;
+    background-color: #fff;
+    position: absolute;
+    box-shadow: 0px 0px 1px 5px #fff;
+    animation-name: left;
+    animation-duration: 2s;
+    animation-iteration-count: 1
+}
+
+.brilloLogo2{
+    width: 0px;
+    height: 80%;
+    left: 0;
+    background-color: #fff;
+    position: absolute;
+    box-shadow: 0px 0px 1px 5px #fff;
+    animation-name: right;
+    animation-duration: 2s;
+    animation-iteration-count: 1
+}
+@keyframes left {
+    0%{
+        transform: translateX(40px);
+        background-color: #000;
+    }
+    
+}
+
+@keyframes right {
+    0%{
+        transform: translateX(-40px);
+        background-color: #000;
+    }
+    
+}

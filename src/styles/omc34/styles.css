@@ -1,0 +1,142 @@
+
+.containerOmc34Form{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    padding: 50px 20px 20px 20px;
+    border-radius: 10px;
+    max-height: fit-content;
+    animation-name: showForm;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+
+}
+
+@keyframes showForm {
+    0%{
+        z-index: 1000;
+        transform: translateY(-100px);
+        background-color: #ccc;
+    }
+}
+
+.headerOmc34Form{
+    position: absolute;
+    background-color: #999 ;
+    width: 100%;
+    height: 40px;
+    max-height: max-content;
+    left: 0;
+    top: 0;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 10px 10px 0px 0px;
+    padding-left: 10px;
+    
+}
+
+
+.footerOmc34Form{
+    color: #fff;
+    background-color: black;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.textAreaFormOmc34{
+    height: 125px;
+}
+
+.closeBtnFormOmc34{
+    position: absolute;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    font-weight: 500;
+    border-radius: 0px 10px 0px 0px;
+    background-color: #f55;
+    border: none;
+    transition: all 0.5s;
+}
+
+.closeBtnFormOmc34:hover{
+    background-color: rgb(236, 13, 13);
+    font-size: 20px;
+}
+
+.containerOmc34RolOrg{
+    margin-bottom: 150px;
+}
+
+.ContainertabsOmc34RolOrg{
+    display: flex;
+    width: fit-content;
+    flex-direction: row;
+    
+    margin-left: 30px;
+    gap: 5px;
+    
+
+}
+
+.tabsOmc34RolOrg{
+    width: 100px; 
+     height: 40px; 
+     /* border-width: 0px 2px 2px 2px;
+     border-style: solid; */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+     background-color: #999;
+     color: #fff;
+     -webkit-transform: skew(20deg);
+     -moz-transform: skew(20deg);
+     -ms-transform: skew(20deg);
+     -o-transform: skew(20deg);
+     transform: skew(-30deg);
+     transition: all 1s;
+     animation: tabsView;
+     animation-duration: 1s;
+     animation-iteration-count: 1;
+     
+}
+
+.tabsOmc34RolOrg:hover {
+    background-color: #555;
+    
+}
+
+@keyframes tabsView {
+    0%{
+        width: 50px;
+        height: 20px;
+    }
+}
+
+.btnConsultarRolOrg{
+    position: fixed;
+    right: 20px;
+    z-index: 100;
+    background-color:#fff;
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.5s;
+}
+
+.btnConsultarRolOrg:hover {
+    color: #555;
+}
+
+.containerOmc34ConsultaRolOrg{
+
+    margin-top: 80px;
+}

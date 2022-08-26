@@ -1,0 +1,27 @@
+.row-omcN1:hover{
+    background-color: #0022;
+    cursor: pointer;
+}
+
+.select{
+    background-color: #0025;
+}
+
+.marginDivTable{
+    margin-top: 80px;
+}
+
+.modal-omc23-enable{
+    transform: translateY(-800px);
+    visibility: hidden;
+    transition: all 1s;
+}
+
+.modal-omc23{
+    position: fixed;
+    width: 50%;
+    bottom: 300px;
+    left: 24%;
+    right: 24%;
+    
+}

@@ -1,0 +1,32 @@
+.sectionFooter{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.elementor-icon-list-items{
+    list-style: none;
+}
+
+.HiperLink{
+    text-decoration: none;
+    color: white;
+    transition: all 0.5s;
+}
+
+.HiperLink:hover{
+    color: grey;
+    cursor: pointer;
+ 
+}
+
+.elementor-grid-item{
+    margin: 4px;
+}
+
+.ImgLogo{
+    height: 60px;
+    display: flex;
+    justify-items: center;
+}

@@ -1,0 +1,26 @@
+.seleccion:hover {
+  background-color: rgba(65, 78, 74, 0.5);
+}
+.selected {
+  background-color: aquamarine;
+}
+
+.seleccionar:hover {
+  cursor: pointer;
+}
+
+a {
+  color: brown;
+  font-size: 1.2rem;
+}
+
+a:hover {
+  color: black;
+}
+
+.trash {
+  color: green;
+  cursor: pointer;
+}
+
+

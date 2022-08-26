@@ -1,0 +1,18 @@
+/* Designe button export excel*/
+.containerExportExcel{
+    position: fixed;
+    right: 10px;
+    cursor: pointer;
+    text-align: center;
+    z-index: 10;
+}
+
+.btnExportExcel{
+    font-size: 35px;
+    color: #1D6F42;
+}
+
+.textExportExcel{
+    font-size:15px ;
+    color: #1D6F42;
+}
