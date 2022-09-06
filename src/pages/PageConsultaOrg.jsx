@@ -1,7 +1,5 @@
-import React,{Fragment,useState} from 'react'
+import React,{Fragment} from 'react'
 import '../styles/omc34/styles.css'
-import{NavLink} from 'react-router-dom'
-import {BsArrowBarLeft} from 'react-icons/bs'
 import Footer from '../components/footer'
 import {Toaster} from 'react-hot-toast'
 import '../styles/omc34/stylesConsulta.css'
@@ -18,8 +16,6 @@ function PageConsultaOrg() {
       reg1N2,
       Registro1,
       reg1N3,
-      reg1N4,
-      reg1N5,
       opcionCase
 
     }  = useOmcCon34()

@@ -181,9 +181,13 @@ export default function Navbar() {
                   <AiFillDownCircle className="bx bx-bar-chart-alt-2 nav_icon" />
                   <span className="nav_name">Materiales según proveedor</span>
                 </NavLink>
-                <NavLink to="/#" className="nav_link">
+                <NavLink to="/marcas" className="nav_link">
                   <AiFillDownCircle className="bx bx-bar-chart-alt-2 nav_icon" />
                   <span className="nav_name">Marca</span>
+                </NavLink>
+                <NavLink to="/SectoresDeMercado" className="nav_link">
+                  <AiFillDownCircle className="bx bx-bar-chart-alt-2 nav_icon" />
+                  <span className="nav_name">Sectores de Mercado</span>
                 </NavLink>
                 <NavLink to="/Sucursales" className="nav_link">
                   <AiFillDownCircle className="bx bx-bar-chart-alt-2 nav_icon" />

@@ -34,7 +34,7 @@ return(
         <td>{node.definicionSpa}</td>
         <td><button className='btn btn-success' onClick={()=>EditRollOrganizacional(node.codigo,valor)}>Editar</button></td>
     </tr>
-    { hasChild && childVisible || Colap? 
+    { (hasChild && childVisible) || Colap? 
     (<TreeComponent data={node.children} valor={valor+1} ident={ident}/>):null}
     </Fragment>
 )}

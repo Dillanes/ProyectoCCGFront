@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react'
 import { useOmcCon34 } from '../context/omc34/ContextOmcCon34';
-import { Toaster, toast } from "react-hot-toast";
+import { Toaster} from "react-hot-toast";
 import TablaOmc34N from '../components/omc34RolesO/TablaOmc34N'
 import FormOmc34 from '../components/omc34RolesO/FormOmc34'
 import Footer from '../components/footer'
-import { Link, NavLink } from "react-router-dom";
-import {BsArrowBarRight} from 'react-icons/bs'
+
 import '../styles/omc34/styles.css'
 
 function RolesOrg() {
@@ -46,7 +45,7 @@ function RolesOrg() {
             descripcion.length>0?(
               <div className='ContainertabsOmc34RolOrg' style={{height:'100px'}}>
                   {descripcion.map((desc,index)=>(
-                      <div onClick={()=>(previusLevel(desc.nivel),setformhiden(false))} title={desc.descripcion} key={index} className='tabsOmc34RolOrg'>{desc.nivel}</div>
+                      <div onClick={()=>{previusLevel(desc.nivel);setformhiden(false)}} title={desc.descripcion} key={index} className='tabsOmc34RolOrg'>{desc.nivel}</div>
                     ))}
               </div> 
             ):(null)

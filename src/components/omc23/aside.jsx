@@ -5,8 +5,8 @@ export default function Aside(props) {
 
     const [name,setname]= useState('containerAsideOpacity');
     const Show = (e)=>{
-        if(name=='containerAsideOpacity'){setname('containerAside')}
-        if(name=='containerAside'){setname('containerAsideOpacity')}
+        if(name==='containerAsideOpacity'){setname('containerAside')}
+        if(name==='containerAside'){setname('containerAsideOpacity')}
         
     }
 

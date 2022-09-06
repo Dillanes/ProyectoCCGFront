@@ -38,20 +38,20 @@ const [personName, setPersonName] = useState(['Email','Observaciones']);
 
 
 
-const renderizarTabla = ()=>{
-  dataSxP.map((reg,index)=>{
-    const renderRow =  document.getElementsByClassName(`${reg.RFC}`)
+const renderizarTabla = (dataSxP)=>{
+  dataSxP.forEach((reg)=>{
+     const renderRow =  document.getElementsByClassName(`${reg.RFC}`)
     if(renderRow.length!==0){
-      console.log(String(renderRow[1].childNodes[0].data)==='+'?'hola1':renderRow[1].click()) 
+      return String(renderRow[1].childNodes[0].data)==='+'?'hola1':renderRow[1].click()
     }
+    
   })
 }
 
-useEffect(() => {
-  
-  renderizarTabla()
 
-}, [dataSxP]);
+useEffect(() => {
+  renderizarTabla(dataSxP)
+}, [dataSxP])
 
 //SELECT COLUMNAR
 const names = [
@@ -213,38 +213,38 @@ const FuncionDataEdit = (id)=>{
 
 }
 
-const selectS = (val)=>{
+// const selectS = (val)=>{
 
-    const municipio = document.getElementById('selectMunicipio')
-    let bandera = 0
-    //PRIMER SELECT
-    for(let it of municipio.childNodes){
-      if(it.value.toLowerCase().trim() === val.toLowerCase().trim()){
-        it.setAttribute('selected','')
-        municipio.setAttribute('disabled','')
-        console.log(municipio.childNodes.length) 
-      }else{
-        it.removeAttribute('selected')
-        bandera+=1;
-      }
-    }
-    if(bandera === municipio.childNodes.length){
-      municipio.removeAttribute('disabled')
-    }
-    //SEGUNDO SELECT
+//     const municipio = document.getElementById('selectMunicipio')
+//     let bandera = 0
+//     //PRIMER SELECT
+//     for(let it of municipio.childNodes){
+//       if(it.value.toLowerCase().trim() === val.toLowerCase().trim()){
+//         it.setAttribute('selected','')
+//         municipio.setAttribute('disabled','')
+//         console.log(municipio.childNodes.length) 
+//       }else{
+//         it.removeAttribute('selected')
+//         bandera+=1;
+//       }
+//     }
+//     if(bandera === municipio.childNodes.length){
+//       municipio.removeAttribute('disabled')
+//     }
+//     //SEGUNDO SELECT
 
 
-    // const sel = document.getElementsByClassName('id4')[0]
-    // console.log(sel)
-    // console.log(sel.getAttribute('selected'))
-    // if(sel.getAttribute('selected')!=null){
-    //    sel.removeAttribute('selected')
-    // }else{
-    //   sel.setAttribute('selected','')
-    // }
+//     // const sel = document.getElementsByClassName('id4')[0]
+//     // console.log(sel)
+//     // console.log(sel.getAttribute('selected'))
+//     // if(sel.getAttribute('selected')!=null){
+//     //    sel.removeAttribute('selected')
+//     // }else{
+//     //   sel.setAttribute('selected','')
+//     // }
     
 
-}
+// }
 
   return (
     <div className='container' style={{marginTop:'80px'}}>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { TableContext } from "../../context/Materiales/TableContext";
+import { Toaster } from "react-hot-toast";
 // import VistaParcial from "./VistaParcial";
 
 function TableApi() {
@@ -17,6 +18,14 @@ function TableApi() {
 
   return (
     <React.Fragment>
+      <Toaster
+      position="top-center"
+      reverseOrder={false}
+      gutter={8}
+      containerClassName=""
+      containerStyle={{}}
+      toastOptions={{}}
+/>
       <section className="mb-3">
         <table className="table align-middle" id="tableMaterials">
           <thead>
@@ -44,17 +53,18 @@ function TableApi() {
                     ? item.idOmc23N4
                     : item.idOmc23N5}
                 </td>
-                <td className="col-2">{item.Codigo}</td>
+                <td className="col-2">{item.codigo}</td>
                 <td className="col-4">{item.descriSpa}</td>
                 <td className="col-4">{item.descriEng}</td>
                 {item.regFinal ? (
+
                   <td className="text-center">
                     <Link
                       style={{ width: "100px" }}
                       type="button"
                       className="btn btn-info btn-sm"
-                      onClick={() => getVistaParcial(item.Codigo)}
-                      to="/formulario"
+                      onClick={() => getVistaParcial(item.codigo)}
+                      to={`/formulario/${item.codigo}`}
                     >
                       Seleccionar
                     </Link>

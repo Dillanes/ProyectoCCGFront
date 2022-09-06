@@ -84,25 +84,27 @@ export default function PageOmc23() {
        setnumeroTabla(idtable)
        setactive(true) 
        switch(idtable){
-        case 2:{
+        case 2:
           setdataFormAdd(omc23n1)
-        }break;
-        case 3:{
+        break;
+        case 3:
  
           setdataFormAdd(omc23n2)
-        }break;
-        case 4:{
+        break;
+        case 4:
 
           setdataFormAdd(omc23n3)
-        }break;
-        case 5:{
+        break;
+        case 5:
 
           setdataFormAdd(omc23n4)
-        }break;
-        case 6:{
+        break;
+        case 6:
 
           setdataFormAdd(omc23n5)
-        }break;
+        break;
+        default:
+          break;
       }
   }
   
@@ -110,31 +112,33 @@ export default function PageOmc23() {
     setcurrent(data)
     
     switch(numeroTabla){
-      case 1:{
-        const idRegistro = omc23n1.filter(reg=>reg.codigo==data.codigo)
-        UpdateOmc23Url(numeroTabla,idRegistro[0].idOmc23N1,data)
-      }break;
-      case 2:{
+      case 1:
+        const idRegistro1 = omc23n1.filter(reg=>reg.codigo===data.codigo)
+        UpdateOmc23Url(numeroTabla,idRegistro1[0].idOmc23N1,data)
+      break;
+      case 2:
         console.log('es el updateRegistro', data)
-        const idRegistro = omc23n2.filter(reg=>reg.codigo==data.codigo)
-        UpdateOmc23Url(numeroTabla,idRegistro[0].idOmc23N2,data,idRegistro[0].fk_Omc23N1)
-      }break;
-      case 3:{
-        const idRegistro = omc23n3.filter(reg=>reg.codigo==data.codigo)
-        UpdateOmc23Url(numeroTabla,idRegistro[0].idOmc23N3,data,idRegistro[0].fk_Omc23N2)
-      }break;
-      case 4:{
-        const idRegistro = omc23n4.filter(reg=>reg.codigo==data.codigo)
-        UpdateOmc23Url(numeroTabla,idRegistro[0].idOmc23N4,data,idRegistro[0].fk_Omc23N3)
-      }break;
-      case 5:{
-        const idRegistro = omc23n5.filter(reg=>reg.codigo==data.codigo)
-        UpdateOmc23Url(numeroTabla,idRegistro[0].idOmc23N5,data,idRegistro[0].fk_Omc23N4)
-      }break;
-      case 6:{
-        const idRegistro = omc23n6.filter(reg=>reg.codigo==data.codigo)
-        UpdateOmc23Url(numeroTabla,idRegistro[0].idOmc23N6,data,idRegistro[0].fk_Omc23N5)
-      }break;
+        const idRegistro2 = omc23n2.filter(reg=>reg.codigo===data.codigo)
+        UpdateOmc23Url(numeroTabla,idRegistro2[0].idOmc23N2,data,idRegistro2[0].fk_Omc23N1)
+      break;
+      case 3:
+        const idRegistro3 = omc23n3.filter(reg=>reg.codigo===data.codigo)
+        UpdateOmc23Url(numeroTabla,idRegistro3[0].idOmc23N3,data,idRegistro3[0].fk_Omc23N2)
+      break;
+      case 4:
+        const idRegistro4 = omc23n4.filter(reg=>reg.codigo===data.codigo)
+        UpdateOmc23Url(numeroTabla,idRegistro4[0].idOmc23N4,data,idRegistro4[0].fk_Omc23N3)
+      break;
+      case 5:
+        const idRegistro5 = omc23n5.filter(reg=>reg.codigo===data.codigo)
+        UpdateOmc23Url(numeroTabla,idRegistro5[0].idOmc23N5,data,idRegistro5[0].fk_Omc23N4)
+      break;
+      case 6:
+        const idRegistro6 = omc23n6.filter(reg=>reg.codigo===data.codigo)
+        UpdateOmc23Url(numeroTabla,idRegistro6[0].idOmc23N6,data,idRegistro6[0].fk_Omc23N5)
+      break;
+      default:
+        break;
     }
     
 

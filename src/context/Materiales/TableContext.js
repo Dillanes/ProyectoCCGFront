@@ -1,7 +1,7 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useLogin } from "../LoginContext";
-
+import toast from "react-hot-toast";
 const TableContext = React.createContext();
 
 function TableProvider(props) {
@@ -50,13 +50,22 @@ function TableProvider(props) {
   const [datoBaseTabla, setDatoBaseTabla] = React.useState([]);
   const [estructura, setEstructura] = React.useState(false);
   const [informationComplete, setInformationComplete] = React.useState(false);
-
+  const [dataEsfuerzo,setDataEsfuerzo] = React.useState([])
+  const [dataGrado,setDataGrado] = React.useState([])
+  
+  const [dataMaterialAdd,setdataMaterialAdd ] = React.useState([])
+  const [ dataMarca,setDataMarca] = React.useState()
+  const [ dataSucursal,setDataSucursal] = React.useState()
+  const [ dataMarcaSucursal,setDataMarcaSucursal] = React.useState()
+  const [DataClaseResist,setDataClaseResist] = React.useState()
+  const [DataClasifCemento,setDataClasifCemento] = React.useState()
 
   //UseEffect initializes the Api
   React.useEffect(() => {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
+  ;
 
   //URL base for API requests
   const api = axios.create({
@@ -67,9 +76,27 @@ function TableProvider(props) {
     }
   })
 
+  const headers = {
+    headers:{
+        Authorization: `Token ${dataToken.token}`,
+    }
+}
+
   // const URL = 'http://127.0.0.1:8000/';
 
+  const FuncionShowModalPxM = (codigo,tipo)=>{
+    switch (tipo) {
+      case 'Concreto':
+        setdataMaterialAdd(listarConcretosMateriales.filter(data=>data.codigoOmc === codigo)[0])
+ 
+        break;
+    
+      default:
+        break;
+    }
+    
 
+  }
 
 
   const datosBaseParaLaTabla = [
@@ -118,11 +145,182 @@ function TableProvider(props) {
 
   //Get API
   const fetchData = async () => {
-
+    fetchMarca()
     apis();
     setOmniClass(41);
     fetchMateriales();
   };
+
+  //LLAMADO A LAS APIS DE MARCAS Y SUCURSAL
+  const fetchMarca = ()=>{
+    axios.get(`http://localhost:8000/apiproveedores/Marca/`, headers).
+    then((response)=>{
+      setDataMarca(response.data.results)
+    }).catch(errors=>{
+      console.log(errors)
+    })
+    axios.get(`http://localhost:8000/apiproveedores/SucursalProveedor/`,headers)
+    .then((response)=>{
+      setDataSucursal(response.data.results)
+    })
+    .catch((error)=>{
+        console.log('SALE ESTE ERROR:',error);
+    })
+
+
+    axios.get(`http://localhost:8000/apiproveedores/ProveedorMarca/`,headers)
+    .then((response)=>{
+      setDataMarcaSucursal(response.data.results)
+    })
+    .catch((error)=>{
+        console.log('SALE ESTE ERROR:',error);
+    })
+  //ESFUERZO
+    axios.get(`http://localhost:8000/apimateriales/ListarEsfuerzo/`,headers)
+    .then((response)=>{
+      setDataEsfuerzo(response.data.results)
+    })
+    .catch((error)=>{
+        console.log('SALE ESTE ERROR:',error);
+    })
+
+    //GRADO
+    axios.get(`http://localhost:8000/apimateriales/ListarGrado/`,headers)
+    .then((response)=>{
+      setDataGrado(response.data.results)
+    })
+    .catch((error)=>{
+        console.log('SALE ESTE ERROR:',error);
+    })
+
+    //CLASIFICACION RESISTENCIA CEMENTO
+    axios.get(`http://localhost:8000/apimateriales/ListarClaseResist/`,headers)
+    .then((response)=>{
+      setDataClaseResist(response.data.results)
+    })
+    .catch((error)=>{
+        console.log('SALE ESTE ERROR:',error);
+    })
+
+    //CLASIFICACION CEMENTO 
+    axios.get(`http://localhost:8000/apimateriales/ListarClasifCemento/`,headers)
+    .then((response)=>{
+      setDataClasifCemento(response.data.results)
+    })
+    .catch((error)=>{
+        console.log('SALE ESTE ERROR:',error);
+    })
+
+  }
+
+  let fecha = new Date()
+
+
+  //AGREGAR REGISTRO OMC23
+  const AddRegistroAceroR = (data)=>{
+    console.log('DESDE EL CONTEX',data)
+
+    // GREGAR MATERIAL
+    axios.post(`http://localhost:8000/apimateriales/Material/`,{
+    numMat:data.numMat,
+    codigoOmc:data.codigo,
+    consecutivo:data.consecutivo,
+    descriCorta:`${data.descriSpa}-${data.esfuerzo}`,
+    descriLarga:`${data.descriSpa}-${data.descriEng}-${data.esfuerzo}-${data.comentarios}`,
+    comentarios:data.comentarios,
+    palabrasCve:data.palabrasClave,
+    desCorEng:data.descriEng,
+    desLargEng:data.descriEng,
+    fuenteInf:data.fuenteInf,
+    fecRegInf:data.fecha
+  },headers).then((response)=>{
+    console.log('RESPUESTA DE AADD MATERIALES',response)
+  }).catch(errors=>{console.log('RESPUESTA DE AADD MATERIALES',errors)})
+ 
+ //AGREGAR DIMENCIONES
+  if(data.numMat === 500){ 
+  axios.post(`http://localhost:8000/apimateriales/Dimensiones/`,{
+    noVarilla:`No.${data.numVarilla}`,
+    diametro:data.diametro,
+    area:data.area,
+    perimetro:data.perimetro,
+    masa:data.masa
+  },headers).then(response=>{
+    console.log('RESPUESTA ADD DIMENSIONES',response)
+  }).catch(errors=>{
+    console.log('RESPUESTA ADD DIMENSIONES',errors)
+  })
+
+  }
+
+
+  
+  setTimeout(async() => {
+    const RegPrueba = await axios.get('http://localhost:8000/apimateriales/Material/',headers)
+    const Material = RegPrueba.data.results[RegPrueba.data.results.length-1]
+    const RegPruebaD = await axios.get('http://localhost:8000/apimateriales/Dimensiones/',headers)
+    const Dimencion = RegPruebaD.data.results[RegPruebaD.data.results.length-1]
+    console.log('MATERIALES DATOS:',Material)
+    console.log('DIMENCION DATOS:',Dimencion)
+    switch (data.numMat) {
+      case 500:  
+        //ACEROS REFORZADOS 
+        axios.post(`http://localhost:8000/apimateriales/AceroRefuerzo/`,{
+          numMat:data.numMat,
+          codigo:data.codigo,
+          fk_Material:Material.idMaterial,
+          fk_Grado:data.idGrado,
+          fk_Dimensiones:Dimencion.idDimensiones,
+          fk_Esfuerzo:data.idEsfuerzo
+        },headers).then(response=>{
+          toast.success("EL registro se guardo exitosamente")
+    
+              }).catch(errors=>console.log('Respuesta AceroRefuerzo',errors))
+        break;
+      case 300:
+        
+        axios.post('http://localhost:8000/apimateriales/Cemento/',{
+          numMat:data.numMat,
+          codigo:data.codigo,
+          fk_Material:Material.idMaterial,
+          fk_ClasCem:data.idTipoCemento,
+          fk_ClasRe:data.idClaseResist
+
+        },headers).then(response=>{
+              toast.success("EL registro se guardo exitosamente")
+    
+              }).catch(errors=>console.log('Respuesta AceroRefuerzo',errors))
+        
+        break;
+              
+      default:
+        break;
+    }
+
+
+  }, 500)
+
+  }
+
+
+  const AddMaterialProvedor = (data,fkMaterial,fkProvMarca,fkSucProv)=>{
+
+        console.log('prueva')
+        axios.post(`http://localhost:8000/apiproveedores/MaterialProveedor/`,{
+          precio:data.pMercado,
+          fechaAct:fecha.toISOString(),
+          fuenteInfo:data.fuenteInf,
+          fk_Material:fkMaterial,
+          fk_ProvMar:fkProvMarca,
+          fk_SucProv:fkSucProv,
+        },headers).then((response)=>{
+            toast.success("EL registro se guardo exitosamente");
+            fetchData()
+        }).catch((errors)=>{
+            console.log(errors)
+        })
+
+}
 
   const fetchMateriales = async () => {
 
@@ -205,14 +403,13 @@ function TableProvider(props) {
   }
 
   const apis = async () => {
-    console.log(omniClass)
+
     var URLDatosOmniClass = ''
     if (omniClass === 23) {
       URLDatosOmniClass = 'apiomcproductos/OMC23'
     } else {
       URLDatosOmniClass = 'apiomcmateriales/OMC41'
     }
-    console.log(URLDatosOmniClass)
     //Level 1 data
     const { data } = await api(`${URLDatosOmniClass}Nivel1/`)
     // const users = await data.json();
@@ -242,7 +439,6 @@ function TableProvider(props) {
     const { data: data6 } = await api(`${URLDatosOmniClass}Nivel6/`)
     // const users6 = await data6.json();
     await setNivel6(data6.results);
-    await console.log('Todas las apis de omniclass 23 y 41 listas')
     await setInformationComplete(true)
   }
 
@@ -376,6 +572,23 @@ function TableProvider(props) {
     }
   }
 
+  // const getVistaParcial = async (item) => {
+  //   const { data: materials } = await api(`apimateriales/Material/`)
+  //   // const materialsData = await materials.json();
+  //   const numero = materials.count + 1;
+  //   await setMaterial(String(numero).padStart(5, 0));
+  //   await setNumMaterial(numero);
+  //   const { data: concreto } = await api(`apimateriales/ListarConcretosMateriales/`)
+  //   // const concretoData = await concreto.json();
+  //   const numeroConcreto = concreto.count + 1;
+  //   await setConcreto(numeroConcreto);
+  //   const reg = datos.filter(reg => reg.codigo === item.codigo)
+  //   console.log('Que tiene registro',reg)
+  //   await setVistaParcial(reg)
+  //   setFormularioActivate(true)
+  //   unidadesConcreto()
+  // }
+
   const getVistaParcial = async (codigo) => {
     const { data: materials } = await api(`apimateriales/Material/`)
     // const materialsData = await materials.json();
@@ -386,7 +599,7 @@ function TableProvider(props) {
     // const concretoData = await concreto.json();
     const numeroConcreto = concreto.count + 1;
     await setConcreto(numeroConcreto);
-    const reg = datos.filter(reg => reg.Codigo === codigo)
+    const reg = datos.filter(reg => reg.codigo === codigo)
     await setVistaParcial(reg)
     setFormularioActivate(true)
     unidadesConcreto()
@@ -466,12 +679,11 @@ function TableProvider(props) {
     datooo[0].forEach((element) => {
       const aw = listarUnidadesMedida.filter(dat => dat.idUniMed === element)[0].Unidad
       x.push(aw)
-      console.log(aw)
-      console.log(aw[0].Unidad)
+
     });
-    console.log(x)
+
     await setDatosConcretos(x)
-    console.log(datosConcretos)
+
   }
 
 
@@ -514,6 +726,7 @@ function TableProvider(props) {
       datosModal,
       listarConcretosMateriales,
       datosConcreto,
+      DataClasifCemento,
       setDatosConcreto,
       setDatoBaseTabla,
       datoBaseTabla,
@@ -531,6 +744,19 @@ function TableProvider(props) {
       setListarConcretosMaterialesCopia,
       estructura, setEstructura,
       informationComplete,
+      FuncionShowModalPxM,
+      dataMaterialAdd,
+      dataMarca,
+      dataSucursal,
+      AddMaterialProvedor,
+      dataMarcaSucursal,
+      dataEsfuerzo,
+      dataGrado,
+      AddRegistroAceroR,
+      DataClaseResist
+
+ 
+
     }}>
       {props.children}
     </TableContext.Provider>

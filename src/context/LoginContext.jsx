@@ -1,9 +1,5 @@
-import axios from "axios";
-import React, { useEffect, useState, useMemo, useRef } from "react";
-import Link from "react-router-dom";
-import { Toaster, toast } from "react-hot-toast";
-import { GiConsoleController } from "react-icons/gi";
-
+import React, {useState, useMemo} from "react";
+import { toast } from "react-hot-toast";
 const LoginContext = React.createContext();
 
 export function LoginProvider(props) {
@@ -55,7 +51,7 @@ export function LoginProvider(props) {
         setDataToken(response.data);
         setauthentication(true);
         window.localStorage.setItem("ccgData", JSON.stringify(response.data));
-        return toast.success("Te haz logueado exitosamente");
+        return toast.success("Bienvenido");
       })
       .catch(function (error) {
         console.log(error);
@@ -78,9 +74,9 @@ export function LoginProvider(props) {
       Logout,
       authentication,
       setDataToken,
-      setauthentication,
-    };
-  }, [dataToken, authentication]);
+      setauthentication
+    }
+  }, [dataToken, authentication])
 
   return <LoginContext.Provider value={value} {...props} />;
 }

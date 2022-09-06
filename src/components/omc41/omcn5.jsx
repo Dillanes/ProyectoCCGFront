@@ -42,7 +42,7 @@ const data = useMemo(()=>props.dataomcn5,[props.dataomcn5])
         style:{
           textAlign:'center'
         }
-    },,
+    },
       {
         Header: 'Código',
         accessor: 'codigo',
@@ -113,12 +113,11 @@ const data = useMemo(()=>props.dataomcn5,[props.dataomcn5])
     previousPage,
     pageOptions,
     prepareRow,
-    state:{pageIndex,pageSize},
+    state:{pageIndex},
     state,
     setGlobalFilter,
   } = useTable({ columns, data},useGlobalFilter,useSortBy,
        usePagination,tableHooks,)
-
        const{globalFilter} = state
 
      return(
@@ -147,14 +146,14 @@ const data = useMemo(()=>props.dataomcn5,[props.dataomcn5])
          {page.map(row => {
            prepareRow(row)
            return (
-            <tr className='trN5' style={{fontSize:'12px', fontFamily:'arial'}} {...row.getRowProps()} onClick={(e)=>(selectRow(e),props.selectOpp5(row.original.codigo) )}>
+            <tr className='trN5' style={{fontSize:'12px', fontFamily:'arial'}} {...row.getRowProps()} onClick={(e)=>{selectRow(e);props.selectOpp5(row.original.codigo) }}>
                {row.cells.map(cell => {
                  return (
                    <td
                      {...cell.getCellProps([{
                       className: cell.column.className,
                       style: cell.column.style,
-                    },])}
+                    }])}
                    >
                      {cell.render('Cell')}
                    </td>

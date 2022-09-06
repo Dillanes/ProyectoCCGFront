@@ -71,7 +71,7 @@ export default function FormularioRegistrar () {
             </span></label>
          </div>
          <div className="form-group mt-2 col-sm-6 mt-2 col-md-3">
-           <img src={NewImg} height='150' width='150'/>
+           <img src={NewImg} alt='imagen default' height='150' width='150'/>
          </div>
          </div>
     

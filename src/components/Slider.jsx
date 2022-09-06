@@ -7,7 +7,6 @@ import Img2 from '../assets/img/img2Slider.jfif'
 import Img4 from '../assets/img/img4Slider.jfif'
 import Img5 from '../assets/img/img5Slider.jfif'
 import Img6 from '../assets/img/img6Slider.jfif'
-import Img7 from '../assets/img/img7Slider.jfif'
 import Img8 from '../assets/img/img8Slider.bmp'
 import '../styles/slider.css'
 
@@ -37,7 +36,7 @@ function Slider() {
             <figcaption>
             <p></p>
             </figcaption>
-            <a href="#"></a>
+            <a href="/#"></a>
             </figure></Items>
             <Items><figure className="snip1477">
             <img className='imgSlider' src={Img3} alt="sample38" />
@@ -50,7 +49,7 @@ function Slider() {
             <figcaption>
             <p></p>
             </figcaption>
-            <a href="#"></a>
+            <a href="/#"></a>
             </figure></Items>
             <Items><figure className="snip1477">
             <img className='imgSlider' src={Img4} alt="sample38" />
@@ -63,7 +62,7 @@ function Slider() {
             <figcaption>
             <p></p>
             </figcaption>
-            <a href="#"></a>
+            <a href="/#"></a>
             </figure></Items>
             <Items><figure className="snip1477">
             <img className='imgSlider' src={Img5} alt="sample38" />
@@ -76,7 +75,7 @@ function Slider() {
             <figcaption>
             <p></p>
             </figcaption>
-            <a href="#"></a>
+            <a href="/#"></a>
             </figure></Items>
             <Items><figure className="snip1477">
             <img className='imgSlider' src={Img6} alt="sample38" />
@@ -89,7 +88,7 @@ function Slider() {
             <figcaption>
             <p></p>
             </figcaption>
-            <a href="#"></a>
+            <a href="/#"></a>
             </figure></Items>
             <Items><figure className="snip1477">
             <img className='imgSlider' src={Img2} alt="sample38" />
@@ -102,7 +101,7 @@ function Slider() {
             <figcaption>
             <p></p>
             </figcaption>
-            <a href="#"></a>
+            <a href="/#"></a>
             </figure></Items>
             <Items><figure className="snip1477">
             <img className='imgSlider' src={Img8} alt="sample38" />
@@ -115,7 +114,7 @@ function Slider() {
             <figcaption>
             <p></p>
             </figcaption>
-            <a href="#"></a>
+            <a href="/#"></a>
             </figure></Items>
         </Carousel>
       </div>

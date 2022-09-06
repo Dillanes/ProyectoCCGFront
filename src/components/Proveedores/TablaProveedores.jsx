@@ -1,4 +1,4 @@
-import React,{useMemo,useState} from 'react'
+import React,{useMemo} from 'react'
 import {
     useTable,
     usePagination,
@@ -88,7 +88,7 @@ function TablaProveedores(props) {
             maxWidth:'100px'
         },
         Cell:(row)=>{
-            return row.row.original.logoImg === 'http://127.0.0.1:8000/media/0%00'?null:<img src={row.row.original.logoImg} height='50' width='50' />
+            return row.row.original.logoImg === 'http://127.0.0.1:8000/media/0%00'?null:<img src={row.row.original.logoImg} alt='' height='50' width='50' />
 
         }
     },
@@ -158,9 +158,8 @@ const {
     previousPage,
     pageOptions,
     prepareRow,
-    state: { pageIndex,pageSize},
+    state: { pageIndex},
     state,
-    setPageSize,
     setGlobalFilter,
   } = useTable( 
     { columns, data },

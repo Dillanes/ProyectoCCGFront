@@ -1,22 +1,17 @@
-import React,{useState} from 'react'
 import { useForm } from "react-hook-form";
 import { useOmcCon34 } from '../../context/omc34/ContextOmcCon34';
 import Tooltip from '@mui/material/Tooltip';
 const FormOmc34 =(props)=>{
   
 const {RolesOrg} = useOmcCon34()
-   console.log(RolesOrg)
+
   const {register,formState:{errors},handleSubmit,setValue,reset} = useForm()
-  
-  console.log( RolesOrg[RolesOrg.length-1])
   const rolOrg = RolesOrg[RolesOrg.length-1]
-  
   const numConsecutivo = parseInt(rolOrg.consecutivo)+1
-  console.log(numConsecutivo)
   const textConsecutivo = String(numConsecutivo)
   const Consecutivo = textConsecutivo.padStart(5, "0");
   const id = rolOrg.idRolOrg+1
-  console.log('Formulario:',props.nivel)
+
   
   // const numero = '30';
   // const resultado = numero.padStart(7, "0");
@@ -27,7 +22,6 @@ const {RolesOrg} = useOmcCon34()
   setValue('Consecutivo',Consecutivo)
  }
 
-  const [idN,setiN] = useState([])
    
   
    

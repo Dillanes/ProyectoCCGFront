@@ -109,7 +109,7 @@ const data = useMemo(()=>props.dataomcn4,[props.dataomcn4])
     previousPage,
     pageOptions,
     prepareRow,
-    state:{pageIndex,pageSize},
+    state:{pageIndex},
     state,
     setGlobalFilter,
   } = useTable({ columns, data},useGlobalFilter,useSortBy,
@@ -144,7 +144,7 @@ const data = useMemo(()=>props.dataomcn4,[props.dataomcn4])
          {page.map(row => {
            prepareRow(row)
            return (
-            <tr className='trN4' style={{fontSize:'12px', fontFamily:'arial'}} {...row.getRowProps()} onClick={(e)=>(selectRow(e),props.selectOpp4(row.original.codigo)) }>
+            <tr className='trN4' style={{fontSize:'12px', fontFamily:'arial'}} {...row.getRowProps()} onClick={(e)=>{selectRow(e);props.selectOpp4(row.original.codigo)}}>
                {row.cells.map(cell => {
                  return (
                    <td

@@ -5,13 +5,6 @@ function AgregarSucursalxProveedor(props) {
 
     const [valueForm, setValueForm] = useState([['','','','','','','','','','','','','']]);
     const [inputValue, setInputValue] = useState('');
-    
-    const [municipio,setMunicipio]=useState(props.dataMunicipio)
-    const [estado,setEstado]=useState(props.dataEstado)
-    const [pais,setPais]=useState(props.dataPais)
-
-
-
 
     const addNewRow = (e)=>{
       setValueForm([...valueForm,['','','','','','','','','','','','','']])
@@ -37,11 +30,12 @@ function AgregarSucursalxProveedor(props) {
       setInputValue('')
     }
 
-    const onChangueLocalitation = (valor)=>{
-        const municipio = document.getElementById('municipioSxP')
-        const estado = document.getElementById('estadoSxP')
-        const pais = document.getElementById('paisSxP')
-        const inputIn = document.getElementById('cpAddSxP')
+    const onChangueLocalitation = (valor,index)=>{
+      console.log(index)
+        const municipio = document.getElementById(`municipioSxP${index}`)
+        const estado = document.getElementById(`estadoSxP${index}`)
+        const pais = document.getElementById(`paisSxP${index}`)
+        const inputIn = document.getElementById(`cpAddSxP${index}`)
         const regCp = props.dataCP.filter(data => data.cp === parseInt(valor))
 
         if(regCp[0]){
@@ -116,7 +110,7 @@ function AgregarSucursalxProveedor(props) {
     <form id='formAddS' onSubmit={(e)=>handleChangeReg(e)}>
      {valueForm.map((reg,index)=>(
         <div className='mb-2' key={index} style={{padding:'20px'}}>
-        <div className='row' ><h3 className='col-md-11'>Sucursal {index+1}</h3><div className='col-md-1'>{index===0?null:<input type='button' value='Eliminar' className='btn btn-danger' onClick={()=>deletReg(index)}/>}</div></div>
+        <div className='row' ><h3 className='col-md-11'>Sucursal {index+1}</h3><div className='col-md-1'>{index != 0 && index === valueForm.length-1 ?<input type='button' value='Eliminar' className='btn btn-danger' onClick={()=>deletReg(index)}/>:null}</div></div>
         <div className='row'>
         <div className="mb-3 col-sm-12 col-md-4">
           <input onChange={(e)=>handleInput(e.target.value,index,0)} required value={reg[0]} type="text" className="form-control" placeholder='Sucursal' />
@@ -139,10 +133,10 @@ function AgregarSucursalxProveedor(props) {
         <div className='row m-1'>DIRECCIÓN:</div>
         <div className='row'>
         <div className="mb-3 col-sm-12 col-md-1">
-          <input id='cpAddSxP' onChange={(e)=>{handleInput(e.target.value,index,5);onChangueLocalitation(e.target.value)}} value={reg[5]} type="number" maxLength='5' className="form-control" required placeholder='CP' />
+          <input id={`cpAddSxP${index}`} onChange={(e)=>{handleInput(e.target.value,index,5);onChangueLocalitation(e.target.value,index)}} value={reg[5]} type="number" maxLength='5' className="form-control" required placeholder='CP' />
         </div>
         <div className="mb-3 col-sm-12 col-md-4">
-          <select id='municipioSxP' disabled className='form-select'>
+          <select id={`municipioSxP${index}`} disabled className='form-select'>
             <option value='mun'>---------</option>
             {!props.dataMunicipio?(null):(
               props.dataMunicipio.map((op,index)=>(
@@ -152,7 +146,7 @@ function AgregarSucursalxProveedor(props) {
           </select>
         </div>
         <div className="mb-3 col-sm-12 col-md-4">
-        <select id='estadoSxP' disabled className='form-select'>
+        <select id={`estadoSxP${index}`} disabled className='form-select'>
             <option value='mun'>---------</option>
             {!props.dataEstado?(null):(
               props.dataEstado.map((op,index)=>(
@@ -162,7 +156,7 @@ function AgregarSucursalxProveedor(props) {
             </select>
         </div>
         <div className="mb-3 col-sm-12 col-md-3">
-        <select id='paisSxP' disabled className='form-select'>
+        <select id={`paisSxP${index}`} disabled className='form-select'>
             <option value='mun'>---------</option>
             {!props.dataPais?(null):(
               props.dataPais.map((op,index)=>(

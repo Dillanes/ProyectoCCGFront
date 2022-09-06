@@ -1,5 +1,4 @@
-import { Button } from "bootstrap";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import {
   useTable,
   usePagination,
@@ -7,13 +6,10 @@ import {
   useSortBy,
 } from "react-table";
 import GlobalFilter from "../GlobalFilter";
-import { useOmc34 } from "../../context/omc34/ContextOmc34";
 import "../../styles/omc23/styles.css";
 
 
 export default function Omcn1(props) {
-  const dataOmc1 = props.Omcn1;
-  const { NivelForm } = useOmc34();
 
   //ESTILOS CSS PARA SELECCIONAR FILA
   function cleanTr() {
@@ -114,7 +110,7 @@ export default function Omcn1(props) {
     previousPage,
     pageOptions,
     prepareRow,
-    state: { pageIndex, pageSize },
+    state: { pageIndex },
     state,
     setGlobalFilter,
   } = useTable(
@@ -171,9 +167,9 @@ export default function Omcn1(props) {
                 <tr
                   style={{ fontSize: "12px", fontFamily: "arial" }}
                   {...row.getRowProps()}
-                  onClick={(e) => (
-                    selectRow(e), props.selectOpp(row.original.codigo,null)
-                  )}
+                  onClick={(e) => {
+                    selectRow(e); props.selectOpp(row.original.codigo,null)
+                  }}
                 >
                   {row.cells.map((cell, idx) => {
                     return (

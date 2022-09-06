@@ -339,15 +339,14 @@ export function Omc41Provider(props) {
             definicionSpa: Data.definicionSpa,
             descriEng: Data.descriEng,
             descriSpa: Data.descriSpa,
-            anioReg: Data.anioReg,
+            anioReg: Data.anioReg
           },headers)
           .then((response) => {
-            console.log(response);
-            fetchData(1);
-            if (response.request.status === 200) {
-              return toast.success("El registro se ha actualizado");
-            }
-            setresponse(response.request.status);
+            fetchData(1)
+            toast.success("El registro se ha actualizado")
+            setresponse(response.request.status)
+          }).catch(errors=>{
+            console.log(errors)
           });
         break;
       case 2:
@@ -359,17 +358,13 @@ export function Omc41Provider(props) {
             definicionSpa: Data.definicionSpa,
             descriEng: Data.descriEng,
             descriSpa: Data.descriSpa,
-            fk_Omc41N1: fk,
-          },headers)
-          .then((response) => {
-            
-            if (response.request.status === 200) {
-              return (
-                toast.success("El registro se ha actualizado"),
-                fetchData(2)
-              );              
-            }            
-            setresponse(response.request.status);
+            fk_Omc41N1: fk
+          },headers).then((response) => {
+                toast.success("El registro se ha actualizado")
+                fetchData(2)        
+                setresponse(response.request.status)
+          }).catch(errors=>{
+             console.log(errors)
           })
         break;
       case 3:
@@ -382,16 +377,16 @@ export function Omc41Provider(props) {
             descriEng: Data.descriEng,
             descriSpa: Data.descriSpa,
             regFinal: Data.regFinal,
-            fk_Omc41N2: fk,
+            fk_Omc41N2: fk
           },headers)
           .then((response) => {
-            
-            if (response.request.status === 200) {
-              return toast.success("El registro se ha actualizado"),
+              toast.success("El registro se ha actualizado")
               fetchData(3)
-            }
-            setresponse(response.request.status);
-          });
+              setresponse(response.request.status)
+
+          }).catch((errors)=>{
+            console.log(errors)
+          })
         break;
       case 4:
         axios
@@ -403,16 +398,15 @@ export function Omc41Provider(props) {
             descriEng: Data.descriEng,
             descriSpa: Data.descriSpa,
             regFinal: Data.regFinal,
-            fk_Omc41N3: fk,
+            fk_Omc41N3: fk
           },headers)
           .then((response) => {
-            
-            if (response.request.status === 200) {
-              return toast.success("El registro se ha actualizado"),
+            toast.success("El registro se ha actualizado")
               fetchData(4)
-            }
-            setresponse(response.request.status);
-          });
+            setresponse(response.request.status)
+          }).catch(errors=>{
+            console.log(errors)
+          })
         break;
       case 5:
         axios
@@ -424,17 +418,15 @@ export function Omc41Provider(props) {
             descriEng: Data.descriEng,
             descriSpa: Data.descriSpa,
             regFinal: Data.regFinal,
-            fk_Omc41N4: fk,
+            fk_Omc41N4: fk
           },headers)
           .then((response) => {
-            
-            if (response.request.status === 200) {
-              return toast.success("El registro se ha actualizado"),
+              toast.success("El registro se ha actualizado")
               fetchData(5)
-            }
-  
-            setresponse(response.request.status);
-          });
+              setresponse(response.request.status)
+          }).catch(errors=>{
+            console.log(errors)
+          })
 
         break;
       case 6:
@@ -447,15 +439,14 @@ export function Omc41Provider(props) {
             descriEng: Data.descriEng,
             descriSpa: Data.descriSpa,
             regFinal: Data.regFinal,
-            fk_Omc41N5: fk,
+            fk_Omc41N5: fk
           },headers)
           .then((response) => {
-            
-            if (response.request.status === 200) {
-              return toast.success("El registro se ha actualizado"),
+              toast.success("El registro se ha actualizado")
               fetchData(6)
-            }
-            setresponse(response.request.status);
+              setresponse(response.request.status)
+          }).catch(errors=>{
+            console.log(errors)
           });
         break;
       default:

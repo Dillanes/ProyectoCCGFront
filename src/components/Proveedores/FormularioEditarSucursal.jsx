@@ -1,11 +1,13 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { useProveedores } from '../../context/Proveedores/ProveedoresContext';
 import {useForm} from 'react-hook-form'
 
 
 function FormularioEditarSucursal(props) {
        
-    const {dataEditS}= useProveedores()
+    const {dataEditS,DataProveedores}= useProveedores()
+    const RegProveedor = DataProveedores.filter(data=>data.idProveedor === dataEditS.fk_Proveedor )[0]
+
     const {register,handleSubmit,setValue,formState:{errors}} = useForm()
     setValue('alias',dataEditS.alias)
     setValue('numTel',dataEditS.numTel)
@@ -18,17 +20,9 @@ function FormularioEditarSucursal(props) {
     setValue('noInt',dataEditS.noInt)
     setValue('cp',dataEditS.fk_CP)
 
+    console.log('dataedit',dataEditS)  
+    console.log('dataedisst',RegProveedor)
 
-
-    const [municipio,setMunicipio] = useState()
-    const [estado,setEstado] = useState()
-    const [pais,setpais] = useState()
-     
-    const OnchangeCp = (val)=>{
-          //  console.log(val.split(''))
-          //  if(val.split('').length )
-    }
-   
     const onSubmit = (data,event)=>{
       props.EditarSucursal(data,dataEditS.idSucProv,dataEditS.fk_Proveedor)
       setTimeout(() => {
@@ -36,7 +30,7 @@ function FormularioEditarSucursal(props) {
       }, 500);
 
     }
-
+    
 
     const onChangueLocalitationEdit = (valor=dataEditS.fk_CP)=>{
       const municipio = document.getElementById('municipioEditSxP')
@@ -105,21 +99,21 @@ function FormularioEditarSucursal(props) {
                 <div className='TargetScroll' style={{marginTop:'40px'}}>
                 <form  onSubmit={handleSubmit(onSubmit)} id='formMxP'  >
                 <div className='row'>
+                <div className="mb-3 col-sm-12 col-md-4">
+                    <label htmlFor="inputEmail4">Proveedor</label>
+                      <input type="text" value={RegProveedor.nombre} className="form-control"  {...register("NomProv",{disabled:true})} />
+                    </div>
                     <div className="mb-3 col-sm-12 col-md-5">
                     <label htmlFor="inputEmail4">Sucursal</label>
                       <input type="text" className="form-control"  {...register("alias",{required:true,maxLength:80})} />
                       {errors.alias && <span className="text-danger text-small d-block mb-2">no valido</span>}
                     </div>
                     <div className="mb-3 col-sm-12 col-md-3">
-                        <label htmlFor="inputEmail4">Telefono</label>       
+                        <label htmlFor="inputEmail4">Teléfono</label>       
                       <input type="tel" className="form-control"  {...register("numTel",{required:true,maxLength:20})}/>
                       {errors.numTel && <span className="text-danger text-small d-block mb-2">no valido</span>}
                     </div>
-                    <div className="mb-3 col-sm-12 col-md-4">
-                        <label htmlFor="inputEmail4">Contacto de Atención</label>         
-                      <input type="text" className="form-control" {...register("contactoAten",{required:true,maxLength:50})} />
-                      {errors.contactoAten && <span className="text-danger text-small d-block mb-2">no valido</span>}
-                    </div>
+                    
                     </div>
                     <div className='row'>
                     <div className="mb-3 col-sm-12 col-md-4">
@@ -130,8 +124,13 @@ function FormularioEditarSucursal(props) {
                         <label htmlFor="inputEmail4">Cargo Superior</label>
                       <input type="text" className="form-control" {...register("cargoSuperior",{})}/>
                     </div>
+                    <div className="mb-3 col-sm-12 col-md-4">
+                        <label htmlFor="inputEmail4">Contacto de Atención</label>         
+                      <input type="text" className="form-control" {...register("contactoAten",{required:true,maxLength:50})} />
+                      {errors.contactoAten && <span className="text-danger text-small d-block mb-2">no valido</span>}
                     </div>
-                    <div className='row'>DIRECCIÓN:</div>
+                    </div>
+                    <div className='row' style={{marginLeft:'0px'}}>DIRECCIÓN:</div>
                     <div className='row'>
                     <div className="mb-3 col-sm-12 col-md-2">
                         <label htmlFor="inputEmail4">CP</label>

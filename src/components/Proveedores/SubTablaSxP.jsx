@@ -3,6 +3,7 @@ import {MdDeleteSweep} from 'react-icons/md'
 import {toast} from 'react-hot-toast'
 
 function SubTablaSxP({data,dataShow,EliminarSucursal,FuncionDataEdit}) {
+
   return (
     <>
       {
@@ -25,6 +26,7 @@ function SubTablaSxP({data,dataShow,EliminarSucursal,FuncionDataEdit}) {
                         Cancelar
                         </button>
                         </div>
+
                         </span>))} style={{cursor:'pointer',color:'rgb(177, 3, 43)',textAlign:'center'}}><MdDeleteSweep/></td>}
                     {dataShow.showEditar?null:<td><button onClick={()=>FuncionDataEdit(Sdata.idSucProv)} className='btn btn-success'>Editar</button></td>}
                 </tr>

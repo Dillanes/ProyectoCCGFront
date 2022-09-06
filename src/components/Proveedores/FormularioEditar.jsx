@@ -2,7 +2,7 @@ import React,{Fragment,useState,useEffect} from 'react'
 import {useForm} from 'react-hook-form'
 import { useProveedores } from '../../context/Proveedores/ProveedoresContext'
 import {BiImageAdd} from 'react-icons/bi'
-
+import defaultImg from '../../assets/img/defaultLogo.png'
 function FormularioEditar(props) {
 
 
@@ -111,7 +111,7 @@ const onSubmit = (data,event)=>{
             </span></label>
          </div>
          <div className="form-group mt-2 col-sm-6 mt-2 col-md-3">
-           <img src={ImgSave} height='150' width='150'/>
+           <img src={ImgSave}  height='150' width='150'/>
          </div>
          </div>
 

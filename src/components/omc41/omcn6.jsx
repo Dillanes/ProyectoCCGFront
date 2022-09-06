@@ -27,8 +27,7 @@ export default function Omcn6(props){
 
 const data = useMemo(()=>props.dataomcn6,[props.dataomcn6])
 
-   const columns = React.useMemo(
-     () => [
+   const columns = React.useMemo(() => [
       {
         Header: "No",
         accessor: "",
@@ -38,7 +37,7 @@ const data = useMemo(()=>props.dataomcn6,[props.dataomcn6])
         style:{
           textAlign:'center'
         }
-    },,
+    },
       {
         Header: 'Código',
         accessor: 'codigo',
@@ -109,7 +108,7 @@ const data = useMemo(()=>props.dataomcn6,[props.dataomcn6])
     previousPage,
     pageOptions,
     prepareRow,
-    state:{pageIndex,pageSize},
+    state:{pageIndex},
     state,
     setGlobalFilter,
   } = useTable({ columns, data},useGlobalFilter,useSortBy,

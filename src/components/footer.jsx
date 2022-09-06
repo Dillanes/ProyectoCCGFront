@@ -41,7 +41,7 @@ const Footer = ()=> {
 
     <div className="footerdivImg">
 					<div className="elementor-element elementor-element-4dd53a4e ob-has-background-overlay elementor-widget elementor-widget-image" data-id="4dd53a4e" data-element_type="widget" data-settings="{&quot;_ob_photomorph_use&quot;:&quot;no&quot;,&quot;_ob_perspektive_use&quot;:&quot;no&quot;,&quot;_ob_poopart_use&quot;:&quot;yes&quot;,&quot;_ob_shadough_use&quot;:&quot;no&quot;,&quot;_ob_allow_hoveranimator&quot;:&quot;no&quot;,&quot;_ob_widget_stalker_use&quot;:&quot;no&quot;}" data-widget_type="image.default">
-				  <div className="elementor-widget-container"><img className='ImgLogo' src="https://consulting.construction/wp-content/uploads/elementor/thumbs/Consulting-Construction_Soluciones-integrales-para-la-industria-AEC_logoW-po2z60znnm1ypcpd6tsb9443x322o3bd1tlfnfbtb0.png"/></div>
+				  <div className="elementor-widget-container"><img className='ImgLogo' alt='default imagen'  src="https://consulting.construction/wp-content/uploads/elementor/thumbs/Consulting-Construction_Soluciones-integrales-para-la-industria-AEC_logoW-po2z60znnm1ypcpd6tsb9443x322o3bd1tlfnfbtb0.png"/></div>
 				  </div>
 					</div>
 
@@ -87,7 +87,7 @@ const Footer = ()=> {
 										<span className="elementor-icon-list-text">+52 33 3640 3179</span>
 									</li>
 								<li className="elementor-icon-list-item">
-											<a className='HiperLink' href="https://api.whatsapp.com/send?phone=523315876661" target="_blank">
+											<a className='HiperLink' href="https://api.whatsapp.com/send?phone=523315876661" rel="noreferrer" target="_blank">
 
 												<span className="elementor-icon-list-icon">
 							<i aria-hidden="true" className="icon icon-whatsapp-2"></i>						</span>
@@ -95,7 +95,7 @@ const Footer = ()=> {
 											</a>
 									</li>
 								<li className="elementor-icon-list-item">
-											<a className='HiperLink' href="mailto:info@consulting.construction" target="_blank">
+											<a className='HiperLink' href="mailto:info@consulting.construction" rel="noreferrer" target="_blank">
 
 												<span className="elementor-icon-list-icon">
 							<i aria-hidden="true" className="far fa-envelope"></i>						</span>
@@ -109,27 +109,27 @@ const Footer = ()=> {
 				<div className="elementor-widget-container">
 					<div className="elementor-social-icons-wrapper elementor-grid">
 						<span className="elementor-grid-item">
-					<a className='HiperLink' target="_blank">
+					<a className='HiperLink' rel="noreferrer" target="_blank">
 						<span className="elementor-screen-only">Facebook</span>
 						<i className="fab fa-facebook"></i>					</a>
 				</span>
 							<span className="elementor-grid-item">
-					<a className='HiperLink' href="https://www.instagram.com/aectechnology_mx/" target="_blank">
+					<a className='HiperLink' href="https://www.instagram.com/aectechnology_mx/" rel="noreferrer" target="_blank">
 						<span className="elementor-screen-only">Instagram</span>
 						<i className="fab fa-instagram"></i>					</a>
 				</span>
 							<span className="elementor-grid-item">
-					<a className='HiperLink' href="https://www.linkedin.com/company/aec-technology-mx" target="_blank">
+					<a className='HiperLink' href="https://www.linkedin.com/company/aec-technology-mx" rel="noreferrer" target="_blank">
 						<span className="elementor-screen-only">Linkedin</span>
 						<i className="fab fa-linkedin"></i>					</a>
 				</span>
 							<span className="elementor-grid-item">
-					<a className='HiperLink' href="https://www.youtube.com/channel/UCAEXn31MuxggXl7pys-QbtA/featured" target="_blank">
+					<a className='HiperLink' href="https://www.youtube.com/channel/UCAEXn31MuxggXl7pys-QbtA/featured" rel="noreferrer" target="_blank">
 						<span className="elementor-screen-only">Youtube</span>
 						<i className="fab fa-youtube"></i>					</a>
 				</span>
 							<span className="elementor-grid-item">
-					<a className='HiperLink' href="https://twitter.com/AECTechnologyMX" target="_blank">
+					<a className='HiperLink' href="https://twitter.com/AECTechnologyMX" rel="noreferrer" target="_blank">
 						<span className="elementor-screen-only">Twitter</span>
 						<i className="fab fa-twitter"></i>					</a>
 				</span>
@@ -219,7 +219,7 @@ const Footer = ()=> {
 											</a>
 									</li>
 								<li className="elementor-icon-list-item">
-                <a className='HiperLink' href="#">
+                <a className='HiperLink' href="/#">
 											<span className="elementor-icon-list-icon">
 							<i aria-hidden="true" className="fas fa-angle-right"></i>						</span>
 										<span className="elementor-icon-list-text">CITI AEC</span>
@@ -237,7 +237,7 @@ const Footer = ()=> {
 
   <div className="text-center p-3" style={{backgroundColor: 'rgba(0, 0, 0, 0.2)'}}>
     © 2020 Copyright:
-    <a className="text-white" target="_blank" href="https://consulting.construction/">Consulting & Construction</a>
+    <a className="text-white" target="_blank" rel="noreferrer" href="https://consulting.construction/">Consulting & Construction</a>
   </div>
  
 </footer>

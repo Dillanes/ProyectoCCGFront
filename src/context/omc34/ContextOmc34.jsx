@@ -1,7 +1,6 @@
-import { render, renderHook } from "@testing-library/react";
 import axios from "axios";
 import React, { useEffect, useState, useMemo } from "react";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { useLogin } from "../LoginContext";
 // import { fetchAllUsers,fetchAllOMCN2,fetchAllOMCN3,fetchAllOMCN4,fetchAllOMCN5,fetchAllOMCN6} from '../../redux/slices'
 const Omc34Context = React.createContext();
@@ -13,8 +12,8 @@ export function Omc34Provider(props) {
   const { dataToken } = useLogin();
 
   useEffect(() => {
-    fetchData(1);
-  }, []);
+    fetchData(1)
+  }, [])
 
   const headers = {
     headers: {
@@ -38,7 +37,6 @@ export function Omc34Provider(props) {
   const [omc34n4, setomc34n4] = useState([]);
   const [response, setresponse] = useState([]);
 
-  //Funciones para filtrar
   //FUNCIONES PARA FILTRAR
   const selectOpp = (data, dataApi) => {
     setselectcodigo1(data);
@@ -383,8 +381,8 @@ export function Omc34Provider(props) {
       selectOpp3,
       selectcodigo1,
       selectcodigo2,
-      selectcodigo3,
-    };
+      selectcodigo3
+  }
   }, [
     omc34n1,
     omc34n2,
@@ -396,7 +394,7 @@ export function Omc34Provider(props) {
     dataomcn4,
     selectcodigo1,
     selectcodigo2,
-    selectcodigo3,
+    selectcodigo3
   ]);
 
   return <Omc34Context.Provider value={value} {...props} />;

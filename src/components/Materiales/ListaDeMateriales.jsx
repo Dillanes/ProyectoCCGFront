@@ -10,6 +10,10 @@ import { Clasificacion } from "./Clasificacion";
 import { styled } from "@mui/material/styles";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { SwipeableTemporaryDrawer } from "./SwipeableTemporaryDrawer";
+import {MdConstruction} from 'react-icons/md'
+import { Toaster } from "react-hot-toast";
+import FormularioAsignarPxM from "./FormularioAsignarPxM";
+
 
 function ListaDeMateriales() {
   const {
@@ -28,6 +32,7 @@ function ListaDeMateriales() {
     listarConcretosMaterialesCopia,
     setListarConcretosMaterialesCopia,
     estructura,
+    FuncionShowModalPxM
   } = React.useContext(TableContext);
 
   const datosGenerales = {
@@ -101,12 +106,14 @@ function ListaDeMateriales() {
   // ];
 
   const [busqueda, setBusqueda] = React.useState("");
+  const [ShowModalPXM,setShowModalPXM] = React.useState(false)
+  const [tipoMaterial,setTipoMaterial] = React.useState('Concreto')
   // const [busqueda2, setBusqueda2] = React.useState("");
 
   const hangleChange = (e) => {
     setBusqueda(e.target.value);
     filtrar(e.target.value);
-    console.log(busqueda);
+
   };
 
   const filtrar = (datoo) => {
@@ -160,6 +167,15 @@ function ListaDeMateriales() {
       backgroundColor: theme.palette.common.black,
     },
   }));
+
+  const AsignarMxP = (codigo)=>{
+         setShowModalPXM(!ShowModalPXM)
+         FuncionShowModalPxM(codigo,tipoMaterial)
+        // console.log(codigo)
+        
+  }
+
+
   return (
     <div className="container mt-5 pt-4">
       <h2 className="h1 text-center">LISTA DE MATERIALES/PRODUCTOS</h2>
@@ -208,6 +224,7 @@ function ListaDeMateriales() {
                 </th>
               ))}
               <th>Editar</th>
+              <th>Add</th>
             </tr>
           </thead>
           <tbody>
@@ -215,15 +232,31 @@ function ListaDeMateriales() {
               <tr key={index} id="table-materials" className="seleccion">
                 {datoBaseTabla.map((item, index) => (
                   <td key={index}>{material[`${item}`]}</td>
+                  
                 ))}
                 <td>
                   <RiFileEditFill className="trash" onClick={resetTabla} />
+                </td>
+                <td>
+                  <MdConstruction className="trash" onClick={()=>{AsignarMxP(material.codigoOmc)}} />
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        <FormularioAsignarPxM
+        setShowModalPXM={setShowModalPXM}
+        ShowModalPXM={ShowModalPXM}
+        />
       </div>
+      <Toaster
+      position="top-center"
+      reverseOrder={false}
+      gutter={8}
+      containerClassName=""
+      containerStyle={{}}
+      toastOptions={{}}
+/>
     </div>
   );
 }

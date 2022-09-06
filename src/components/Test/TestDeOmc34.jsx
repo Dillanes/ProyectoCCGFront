@@ -18,20 +18,14 @@ function TestDeOmc34() {
   const [nivel, setNivel] = React.useState();
   const [nivel1, setNivel1] = React.useState([]);
   const [nivel2, setNivel2] = React.useState([]);
-  const [nivel2View, setNivel2View] = React.useState([]);
   const [nivel3, setNivel3] = React.useState([]);
-  const [nivel3View, setNivel3View] = React.useState([]);
   const [nivel4, setNivel4] = React.useState([]);
-  const [nivel4View, setNivel4View] = React.useState([]);
-  const [nivel5, setNivel5] = React.useState([]);
-  const [nivel5View, setNivel5View] = React.useState([]);
-  const [nivel6, setNivel6] = React.useState([]);
-  const [nivel6View, setNivel6View] = React.useState([]);
   const [id1, setId1] = React.useState([]);
-
+ 
+  console.log(nivel4===id1?'':'')
   useEffect(() => {
     getOmc34();
-  }, []);
+  }, )
 
   const getOmc34 = async () => {
     const { data: level1 } = await api("apiOMC34/OMC34Nivel1/");

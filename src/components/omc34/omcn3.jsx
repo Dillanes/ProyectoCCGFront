@@ -110,7 +110,7 @@ export default function Omcn3(props){
     previousPage,
     pageOptions,
     prepareRow,
-    state:{pageIndex,pageSize},
+    state:{pageIndex},
     state,
     setGlobalFilter,
   } = useTable({ columns, data},useGlobalFilter,useSortBy,
@@ -144,7 +144,7 @@ export default function Omcn3(props){
          {page.map(row => {
            prepareRow(row)
            return (
-            <tr className='trN3' style={{fontSize:'12px', fontFamily:'arial'}} {...row.getRowProps()} onClick={(e)=>(selectRow(e),props.selectOpp3(row.original.codigo)) }>
+            <tr className='trN3' style={{fontSize:'12px', fontFamily:'arial'}} {...row.getRowProps()} onClick={(e)=>{selectRow(e);props.selectOpp3(row.original.codigo)} }>
                {row.cells.map(cell => {
                  return (
                    <td

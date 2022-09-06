@@ -18,7 +18,7 @@ function Home() {
       <div className='containerHome'>
         <div className='targetHome'></div>
            <h1 className='tituloHome'>SISTEMA DE GESTIÓN DE INFORMACIÓN CONSULTING & CONSTRUCTION</h1>
-           <div><img className='imgHome2' src={logoCCG}/></div>
+           <div><img className='imgHome2' alt="Default img" src={logoCCG}/></div>
            
     </div>
     <div className='sliderHome'>

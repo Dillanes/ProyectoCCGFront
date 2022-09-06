@@ -20,7 +20,6 @@ function PageMarcaxProveedor() {
   const [activeFormMxP,setactiveFormMxP]= useState()
   const [dataMxP, setdataMxP] = useState(DataMarcaxProveedores)
   const [valueSearch,setvalueSearch] = useState()
-  const [SaveEvento,setSaveEvento] = useState()
 
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
@@ -32,15 +31,18 @@ function PageMarcaxProveedor() {
         },
         },
       }
-    
-      const ActualizarEstado = ()=>{
-        setdataMxP(DataMarcaxProveedores)
+      const renderizarTabla = (DataMarcaxProveedores)=>{
+        DataMarcaxProveedores.forEach((reg)=>{
+          const renderRow =  document.getElementsByClassName(`${reg.RFC}`)
+          if(renderRow.length !== 0){
+            return String(renderRow[1].childNodes[0].data)==='+'?'hola1':renderRow[1].click()
+          }
+          
+        })
       }
+
        
-      useEffect(() => {
-        ActualizarEstado()
-        renderizarTabla()
-      }, [DataMarcaxProveedores]);
+      useEffect(() => {renderizarTabla(DataMarcaxProveedores)},[DataMarcaxProveedores])
 
     const names = [
       'Nombre Proveedor',
@@ -112,20 +114,12 @@ function PageMarcaxProveedor() {
         }  
       } 
 
-  const renderizarTabla = ()=>{
-    DataMarcaxProveedores.map((reg,index)=>{
-      const renderRow =  document.getElementsByClassName(`${reg.RFC}`)
-      if(renderRow.length != 0){
-        return String(renderRow[1].childNodes[0].data)==='+'?'hola1':renderRow[1].click()
-      }
-      
-    })
-  }
+
   
 
   const pruebbaa = ()=>{
     let menu = document.getElementById('PruebaDuplicar')
-    let clonedMenu = menu.cloneNode(true);
+    menu.cloneNode(true);
   }
   
 
@@ -156,13 +150,13 @@ function PageMarcaxProveedor() {
       }
    }
       
-   const nextPage = ()=>{
+  //  const nextPage = ()=>{
 
-   }
+  //  }
 
-   const previusPage = ()=>{
+  //  const previusPage = ()=>{
     
-  }
+  // }
    
   const showFormularioMxP = (e)=>{
     setactiveFormMxP(true)

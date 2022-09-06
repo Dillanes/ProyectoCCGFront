@@ -3,11 +3,10 @@ import { useForm } from "react-hook-form";
 import '../styles/login/styles.css'
 import { useLogin } from '../context/LoginContext';
 import { Toaster } from 'react-hot-toast';
-
 import Logo from '../assets/img/logoConsulting.png'
 
 const Login = () => {
-    const {register,formState:{errors} ,handleSubmit,setValue} = useForm();
+    const {register,formState:{errors} ,handleSubmit} = useForm();
     
     const {Login} = useLogin()
 
@@ -36,7 +35,7 @@ const Login = () => {
             <div className='ContainerImgLogin'>
             <div className='brilloLogo'></div>
             <div className='brilloLogo2'></div>
-            <img className='LogoCCGLogin' src={Logo}/>
+            <img className='LogoCCGLogin' alt="Default img"  src={Logo}/>
             </div>
             <div className='textLoginDesc'>
                <h3>IMPULSAMOS LA TRANSFORMACIÓN<br/> HACIA LA CONSTRUCCIÓN 4.0 </h3>

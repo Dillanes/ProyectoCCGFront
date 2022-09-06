@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState, useMemo } from "react";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { useLogin } from "../LoginContext";
 
 const Omc34ConContext = React.createContext();
@@ -519,9 +519,9 @@ const EditarConsultaRolesO = async(Data,nivel,id,fk)=>{
         nivelConsultaRoll,
         showNodalEditCR,
         setshowNodalEditCR,
-        EditarConsultaRolesO,
-      };
-    }, [
+        EditarConsultaRolesO
+      }
+    },[
         omc34n1,
         omc34n2,
         omc34n3,
@@ -540,10 +540,10 @@ const EditarConsultaRolesO = async(Data,nivel,id,fk)=>{
         Interlineado,
         editarConsultaR,
         nivelConsultaRoll,
-        showNodalEditCR,
-    ]);
+        showNodalEditCR
+    ])
   
-    return <Omc34ConContext.Provider value={value} {...props} />;
+    return <Omc34ConContext.Provider value={value} {...props} />
 }
 
 export function useOmcCon34() {
